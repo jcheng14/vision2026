@@ -5,429 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision 2026 - Strategic Opportunity Map</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Password Overlay */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         .password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
+            display: flex; justify-content: center; align-items: center; z-index: 9999;
         }
         .password-box {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
+            background: white; padding: 50px; border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; max-width: 400px; width: 90%;
         }
-        .password-box h2 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .password-box p {
-            color: #666;
-            margin-bottom: 25px;
-            font-size: 0.95em;
-        }
+        .password-box h2 { margin-bottom: 10px; color: #333; }
+        .password-box p { color: #666; margin-bottom: 25px; font-size: 0.95em; }
         .password-box input {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            text-align: center;
-            letter-spacing: 3px;
+            width: 100%; padding: 15px; font-size: 16px; border: 2px solid #ddd;
+            border-radius: 10px; margin-bottom: 15px; text-align: center; letter-spacing: 3px;
         }
-        .password-box input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
+        .password-box input:focus { outline: none; border-color: #667eea; }
         .password-box button {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
+            width: 100%; padding: 15px; font-size: 16px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;
         }
-        .password-box button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        .password-error {
-            color: #e74c3c;
-            margin-top: 15px;
-            display: none;
-        }
-        .hidden {
-            display: none !important;
-        }
-
-        /* Main Content */
+        .password-box button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4); }
+        .password-error { color: #e74c3c; margin-top: 15px; display: none; }
+        .hidden { display: none !important; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
+            line-height: 1.8; color: #333; background: #f5f5f5; padding: 20px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Language Switcher */
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
-            overflow: hidden;
+            position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex;
+            background: white; border-radius: 25px; box-shadow: 0 2px 15px rgba(0,0,0,0.15); overflow: hidden;
         }
-        .lang-btn {
-            padding: 10px 20px;
-            border: none;
-            background: white;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #666;
-            transition: all 0.3s;
-        }
-        .lang-btn:hover {
-            background: #f0f0f0;
-        }
-        .lang-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-        }
-        .english-title {
-            text-align: center;
-            color: #888;
-            font-size: 0.95em;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .divider {
-            border: none;
-            border-top: 2px solid #e0e0e0;
-            margin: 30px 0;
-        }
-        .meta-info {
-            text-align: center;
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 40px;
-        }
+        .lang-btn { padding: 10px 20px; border: none; background: white; cursor: pointer; font-size: 14px; font-weight: 600; color: #666; }
+        .lang-btn:hover { background: #f0f0f0; }
+        .lang-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        h1 { font-size: 2.5em; text-align: center; color: #1a1a1a; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-size: 1.1em; margin-bottom: 30px; }
+        .divider { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+        .meta-info { text-align: center; color: #666; font-size: 0.95em; margin-bottom: 40px; }
         .mission-box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-            margin: 40px 0;
-            text-align: center;
+            color: white; padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center;
         }
-        .mission-box h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-        .mission-box p {
-            font-size: 1.1em;
-            line-height: 1.9;
-            opacity: 0.95;
-        }
-        h2 {
-            font-size: 1.8em;
-            color: #1a1a1a;
-            margin: 50px 0 25px 0;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-        h3 {
-            font-size: 1.4em;
-            color: #333;
-            margin: 30px 0 15px 0;
-        }
-        h4 {
-            font-size: 1.15em;
-            color: #444;
-            margin: 25px 0 15px 0;
-        }
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        .industry-section {
-            background: #fafafa;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            border-left: 5px solid #667eea;
-        }
-        .industry-title {
-            font-size: 1.5em;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
+        .mission-box h2 { font-size: 1.5em; margin-bottom: 20px; }
+        .mission-box p { font-size: 1.1em; line-height: 1.9; opacity: 0.95; }
+        h2 { font-size: 1.8em; color: #1a1a1a; margin: 50px 0 25px 0; padding-bottom: 10px; border-bottom: 3px solid #667eea; }
+        h3 { font-size: 1.4em; color: #333; margin: 30px 0 15px 0; }
+        h4 { font-size: 1.15em; color: #444; margin: 25px 0 15px 0; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .industry-section { background: #fafafa; border-radius: 12px; padding: 30px; margin: 30px 0; border-left: 5px solid #667eea; }
+        .industry-title { font-size: 1.5em; color: #1a1a1a; margin-bottom: 20px; display: flex; align-items: center; }
         .industry-number {
-            background: #667eea;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
-            flex-shrink: 0;
+            background: #667eea; color: white; width: 40px; height: 40px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;
         }
-        .type-label {
-            background: #e8f0fe;
-            color: #1967d2;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin: 20px 0 15px 0;
-            display: inline-block;
-        }
+        .type-label { background: #e8f0fe; color: #1967d2; padding: 8px 16px; border-radius: 20px; font-size: 0.9em; font-weight: 600; margin: 20px 0 15px 0; display: inline-block; }
         .type-label.type1 { background: #e6f4ea; color: #137333; }
         .type-label.type2 { background: #e8f0fe; color: #1967d2; }
         .type-label.type3 { background: #fef7e0; color: #b06000; }
         .type-label.type4 { background: #fce8e6; color: #c5221f; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0 25px 0;
-            font-size: 0.95em;
-        }
-        th {
-            background: #f0f0f0;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-            border: 1px solid #ddd;
-        }
-        td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        tr:hover {
-            background: #f0f7ff;
-        }
-        .stars {
-            color: #f5a623;
-            white-space: nowrap;
-        }
-        .project-num {
-            font-weight: bold;
-            color: #667eea;
-            width: 40px;
-        }
-        .project-name {
-            font-weight: 600;
-            width: 180px;
-        }
-        .top15-table {
-            background: white;
-        }
-        .top15-table th {
-            background: #667eea;
-            color: white;
-        }
-        .rank-cell {
-            font-weight: bold;
-            color: #667eea;
-            text-align: center;
-            width: 50px;
-        }
-        .type-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0 25px 0; font-size: 0.95em; }
+        th { background: #f0f0f0; padding: 12px 15px; text-align: left; font-weight: 600; border: 1px solid #ddd; }
+        td { padding: 12px 15px; border: 1px solid #ddd; vertical-align: top; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        tr:hover { background: #f0f7ff; }
+        .stars { color: #f5a623; white-space: nowrap; }
+        .project-num { font-weight: bold; color: #667eea; width: 40px; }
+        .project-name { font-weight: 600; width: 180px; }
+        .top15-table th { background: #667eea; color: white; }
+        .rank-cell { font-weight: bold; color: #667eea; text-align: center; width: 50px; }
+        .type-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600; }
         .type-badge.t1 { background: #e6f4ea; color: #137333; }
         .type-badge.t2 { background: #e8f0fe; color: #1967d2; }
         .type-badge.t3 { background: #fef7e0; color: #b06000; }
         .type-badge.t4 { background: #fce8e6; color: #c5221f; }
-        .type-explanation {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-        .type-explanation ul {
-            list-style: none;
-            padding: 0;
-        }
-        .type-explanation li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .type-explanation li:last-child {
-            border-bottom: none;
-        }
-        .type-tag {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.9em;
-            margin-right: 10px;
-        }
-        .pathway-box {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-            border: 1px solid #e0e0e0;
-        }
-        .pathway-title {
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        .timeline-item {
-            display: flex;
-            margin: 15px 0;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .timeline-period {
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-right: 15px;
-            white-space: nowrap;
-        }
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #e0e0e0;
-            text-align: center;
-            color: #888;
-            font-size: 0.9em;
-        }
-        ul, ol {
-            margin: 15px 0 15px 25px;
-        }
-        li {
-            margin: 8px 0;
-        }
-
+        .type-explanation { background: #f8f9fa; border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .type-explanation ul { list-style: none; padding: 0; }
+        .type-explanation li { padding: 10px 0; border-bottom: 1px solid #eee; }
+        .type-explanation li:last-child { border-bottom: none; }
+        .type-tag { display: inline-block; padding: 3px 12px; border-radius: 15px; font-weight: 600; font-size: 0.9em; margin-right: 10px; }
+        .pathway-box { background: #f8f9fa; border-radius: 12px; padding: 25px; margin: 20px 0; border: 1px solid #e0e0e0; }
+        .pathway-title { font-weight: 700; color: #667eea; margin-bottom: 10px; }
+        .timeline-item { display: flex; margin: 15px 0; flex-wrap: wrap; align-items: center; }
+        .timeline-period { background: #667eea; color: white; padding: 5px 15px; border-radius: 20px; font-weight: 600; margin-right: 15px; }
+        .footer { margin-top: 50px; padding-top: 30px; border-top: 2px solid #e0e0e0; text-align: center; color: #888; font-size: 0.9em; }
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .lang-switcher {
-                top: 10px;
-                right: 10px;
-            }
-            .lang-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-            table {
-                font-size: 0.85em;
-            }
-            td, th {
-                padding: 8px;
-            }
-            .industry-title {
-                font-size: 1.2em;
-            }
-        }
-
-        @media print {
-            body { background: white; padding: 0; }
-            .container { box-shadow: none; padding: 30px; }
-            .industry-section { break-inside: avoid; }
-            table { break-inside: avoid; }
-            .lang-switcher { display: none; }
+            .container { padding: 20px; }
+            h1 { font-size: 1.8em; }
+            .lang-switcher { top: 10px; right: 10px; }
+            .lang-btn { padding: 8px 12px; font-size: 12px; }
+            table { font-size: 0.85em; }
+            td, th { padding: 8px; }
         }
     </style>
 </head>
 <body>
-    <!-- Password Overlay -->
     <div class="password-overlay" id="passwordOverlay">
         <div class="password-box">
             <h2 data-zh="请输入访问密码" data-en="Enter Access Code">请输入访问密码</h2>
             <p data-zh="此文档仅限内部查阅" data-en="This document is for internal use only">此文档仅限内部查阅</p>
             <input type="password" id="passwordInput" placeholder="••••••••" onkeypress="if(event.key==='Enter')checkPassword()">
-            <button onclick="checkPassword()" data-zh="确认" data-en="Enter">确认</button>
-            <p class="password-error" id="passwordError" data-zh="密码错误，请重试" data-en="Incorrect password, please try again">密码错误，请重试</p>
+            <button onclick="checkPassword()" data-zh="进入" data-en="Enter">进入</button>
+            <p class="password-error" id="passwordError" data-zh="密码错误，请重试" data-en="Incorrect password">密码错误，请重试</p>
         </div>
     </div>
 
-    <!-- Language Switcher -->
     <div class="lang-switcher hidden" id="langSwitcher">
         <button class="lang-btn active" id="btnZh" onclick="setLanguage('zh')">中文</button>
         <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">EN</button>
     </div>
 
-    <!-- Main Content -->
     <div class="container hidden" id="mainContent">
-        <h1>
-            <span data-zh="战略愿景 2026" data-en="Vision 2026">战略愿景 2026</span>
-        </h1>
-        <p class="subtitle">
-            <span data-zh="技术重构背景下的轻量化创业与投资范式" data-en="The Lean Paradigm in a Re-industrialized & AI-First World">技术重构背景下的轻量化创业与投资范式</span>
-        </p>
-
+        <h1><span data-zh="战略愿景 2026" data-en="Vision 2026">战略愿景 2026</span></h1>
+        <p class="subtitle"><span data-zh="技术重构背景下的轻量化创业与投资范式" data-en="The Lean Paradigm in a Re-industrialized & AI-First World">技术重构背景下的轻量化创业与投资范式</span></p>
         <hr class="divider">
-
         <p class="meta-info">
             <span data-zh="未来机会全景地图 · 100+具体项目 · 优先级排序" data-en="Strategic Opportunity Map · 100+ Projects · Prioritized">未来机会全景地图 · 100+具体项目 · 优先级排序</span><br>
             <strong data-zh="从中选择1–2个项目，All-in 执行" data-en="Select 1-2 projects to go All-in">从中选择1–2个项目，All-in 执行</strong><br><br>
@@ -487,157 +181,262 @@
 
         <h2 data-zh="第四章 全景项目列表（按行业分类）" data-en="Chapter 4: Complete Project List (By Industry)">第四章 全景项目列表（按行业分类）</h2>
 
-        <!-- 4.1 建筑与房地产 -->
+        <!-- INDUSTRY 1: 建筑与房地产 -->
         <div class="industry-section">
-            <div class="industry-title">
-                <span class="industry-number">4.1</span>
-                <span data-zh="建筑与房地产" data-en="Construction & Real Estate">建筑与房地产</span>
-            </div>
-
-            <div class="type-label type1">Type I<span data-zh="：手机/相机 + AI算法" data-en=": Phone/Camera + AI">：手机/相机 + AI算法</span></div>
+            <div class="industry-title"><span class="industry-number">1</span><span data-zh="建筑与房地产" data-en="Construction & Real Estate">建筑与房地产</span></div>
+            <div class="type-label type1">Type I</div>
             <table>
-                <tr>
-                    <th class="project-num">#</th>
-                    <th class="project-name" data-zh="项目名称" data-en="Project Name">项目名称</th>
-                    <th data-zh="一句话描述" data-en="Description">一句话描述</th>
-                    <th style="width:80px;" data-zh="潜力" data-en="Potential">潜力</th>
-                </tr>
-                <tr>
-                    <td class="project-num">01</td>
-                    <td class="project-name" data-zh="室内量房→材料清单" data-en="Room Scan → Material List">室内量房→材料清单</td>
-                    <td data-zh="手机LIDAR扫描房间，自动生成3D户型图并计算全部装修材料用量，直接输出采购清单。美国年450万套装修的第一步" data-en="Phone LIDAR scans rooms, auto-generates 3D floor plans, calculates all renovation materials, outputs procurement list. First step for 4.5M US renovations/year">手机LIDAR扫描房间，自动生成3D户型图并计算全部装修材料用量，直接输出采购清单。美国年450万套装修的第一步</td>
-                    <td class="stars">★★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">02</td>
-                    <td class="project-name" data-zh="屋顶面积与损伤评估" data-en="Roof Area & Damage Assessment">屋顶面积与损伤评估</td>
-                    <td data-zh="无人机拍照+AI自动计算屋顶面积、坡度和损伤区域，生成维修报价与保险理赔报告。年500万屋顶项目" data-en="Drone photos + AI auto-calculates roof area, slope, damage zones. Generates repair quotes & insurance claims. 5M roof projects/year">无人机拍照+AI自动计算屋顶面积、坡度和损伤区域，生成维修报价与保险理赔报告。年500万屋顶项目</td>
-                    <td class="stars">★★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">03</td>
-                    <td class="project-name" data-zh="建筑外立面缺陷检测" data-en="Facade Defect Detection">建筑外立面缺陷检测</td>
-                    <td data-zh="无人机/长焦相机识别裂缝、渗水、瓷砖脱落。纽约法规要求6层以上建筑每5年检查，合规驱动的刚需" data-en="Drone/telephoto camera identifies cracks, leaks, tile detachment. NYC requires 6+ story buildings inspected every 5 years—compliance-driven demand">无人机/长焦相机识别裂缝、渗水、瓷砖脱落。纽约法规要求6层以上建筑每5年检查，合规驱动的刚需</td>
-                    <td class="stars">★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">04</td>
-                    <td class="project-name" data-zh="建筑材料用量计算" data-en="Construction Material Calculator">建筑材料用量计算</td>
-                    <td data-zh="上传图纸或扫描现场，AI自动算出所有砖、水泥、钢筋用量。小型承包商的$29-79/月简化版" data-en="Upload blueprints or scan site, AI auto-calculates all brick, cement, rebar quantities. $29-79/mo simplified version for small contractors">上传图纸或扫描现场，AI自动算出所有砖、水泥、钢筋用量。小型承包商的$29-79/月简化版</td>
-                    <td class="stars">★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">05</td>
-                    <td class="project-name" data-zh="施工进度AI追踪" data-en="Construction Progress AI Tracking">施工进度AI追踪</td>
-                    <td data-zh="定期拍照对比设计图纸，自动计算工程完成百分比。住宅和小型商业项目的方案几乎空白" data-en="Periodic photos compared to blueprints, auto-calculates completion percentage. Residential & small commercial solutions nearly nonexistent">定期拍照对比设计图纸，自动计算工程完成百分比。住宅和小型商业项目的方案几乎空白</td>
-                    <td class="stars">★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">06</td>
-                    <td class="project-name" data-zh="工地模板安装合规检查" data-en="Formwork Compliance Check">工地模板安装合规检查</td>
-                    <td data-zh="手机拍摄模板支架，AI自动核对立杆间距与支撑密度是否符合安全规范，替代人工抽检" data-en="Phone captures formwork, AI auto-verifies post spacing & support density against safety codes, replacing manual spot-checks">手机拍摄模板支架，AI自动核对立杆间距与支撑密度是否符合安全规范，替代人工抽检</td>
-                    <td class="stars">★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">07</td>
-                    <td class="project-name" data-zh="建筑废弃物分类与量化" data-en="Construction Waste Classification">建筑废弃物分类与量化</td>
-                    <td data-zh="相机AI识别废弃物类型和比例→指导源头分类→ESG报告。开发商合规需求" data-en="Camera AI identifies waste types & ratios → guides source sorting → ESG reports. Developer compliance requirement">相机AI识别废弃物类型和比例→指导源头分类→ESG报告。开发商合规需求</td>
-                    <td class="stars">★★★</td>
-                </tr>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>01</td><td data-zh="室内量房→材料清单" data-en="Room Scan → Material List">室内量房→材料清单</td><td data-zh="手机LIDAR扫描房间，自动生成3D户型图并计算全部装修材料用量，直接输出采购清单。美国年450万套装修的第一步。" data-en="Phone LIDAR scans rooms, auto-generates 3D floor plans, calculates all renovation materials. First step for 4.5M US renovations/year.">手机LIDAR扫描房间，自动生成3D户型图并计算全部装修材料用量，直接输出采购清单。美国年450万套装修的第一步。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>02</td><td data-zh="屋顶面积与损伤评估" data-en="Roof Area & Damage Assessment">屋顶面积与损伤评估</td><td data-zh="无人机拍照+AI自动计算屋顶面积、坡度和损伤区域，生成维修报价与保险理赔报告。年500万屋顶项目。" data-en="Drone photos + AI calculates roof area, slope, damage zones. Generates repair quotes & insurance claims. 5M roof projects/year.">无人机拍照+AI自动计算屋顶面积、坡度和损伤区域，生成维修报价与保险理赔报告。年500万屋顶项目。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>03</td><td data-zh="建筑外立面缺陷检测" data-en="Facade Defect Detection">建筑外立面缺陷检测</td><td data-zh="无人机/长焦相机识别裂缝、渗水、瓷砖脱落。纽约法规要求6层以上建筑每5年检查，合规驱动的刚需。" data-en="Drone/telephoto identifies cracks, leaks, tile detachment. NYC requires 6+ story buildings inspected every 5 years.">无人机/长焦相机识别裂缝、渗水、瓷砖脱落。纽约法规要求6层以上建筑每5年检查，合规驱动的刚需。</td><td class="stars">★★★</td></tr>
+                <tr><td>04</td><td data-zh="建筑材料用量计算" data-en="Material Quantity Calculator">建筑材料用量计算</td><td data-zh="上传图纸或扫描现场，AI自动算出所有砖、水泥、钢筋用量。小型承包商的$29-79/月简化版。" data-en="Upload blueprints or scan site, AI calculates all brick, cement, rebar quantities. $29-79/mo for small contractors.">上传图纸或扫描现场，AI自动算出所有砖、水泥、钢筋用量。小型承包商的$29-79/月简化版。</td><td class="stars">★★★★</td></tr>
+                <tr><td>05</td><td data-zh="施工进度AI追踪" data-en="Construction Progress Tracking">施工进度AI追踪</td><td data-zh="定期拍照对比设计图纸，自动计算工程完成百分比。住宅和小型商业项目的方案几乎空白。" data-en="Periodic photos compared to blueprints, auto-calculates completion percentage. Gap in residential/small commercial.">定期拍照对比设计图纸，自动计算工程完成百分比。住宅和小型商业项目的方案几乎空白。</td><td class="stars">★★★</td></tr>
+                <tr><td>06</td><td data-zh="工地模板安装合规检查" data-en="Formwork Compliance Check">工地模板安装合规检查</td><td data-zh="手机拍摄模板支架，AI自动核对立杆间距与支撑密度是否符合安全规范，替代人工抽检。" data-en="Phone captures formwork, AI verifies post spacing & support density against safety codes.">手机拍摄模板支架，AI自动核对立杆间距与支撑密度是否符合安全规范，替代人工抽检。</td><td class="stars">★★★</td></tr>
+                <tr><td>07</td><td data-zh="建筑废弃物分类与量化" data-en="Construction Waste Classification">建筑废弃物分类与量化</td><td data-zh="相机AI识别废弃物类型和比例→指导源头分类→ESG报告。开发商合规需求。" data-en="Camera AI identifies waste types & ratios → guides sorting → ESG reports. Developer compliance need.">相机AI识别废弃物类型和比例→指导源头分类→ESG报告。开发商合规需求。</td><td class="stars">★★★</td></tr>
             </table>
-
-            <div class="type-label type3">Type III<span data-zh="：轻量硬件 + AI" data-en=": Light Hardware + AI">：轻量硬件 + AI</span></div>
+            <div class="type-label type3">Type III</div>
             <table>
-                <tr>
-                    <th class="project-num">#</th>
-                    <th class="project-name" data-zh="项目名称" data-en="Project Name">项目名称</th>
-                    <th data-zh="一句话描述" data-en="Description">一句话描述</th>
-                    <th style="width:80px;" data-zh="潜力" data-en="Potential">潜力</th>
-                </tr>
-                <tr>
-                    <td class="project-num">08</td>
-                    <td class="project-name" data-zh="远程装修LiDAR套件" data-en="Remote Renovation LiDAR Kit">远程装修LiDAR套件</td>
-                    <td data-zh="寄给用户的专用扫描棒，生成工厂可用的CAD模型。解决远程定制家具的测量难题" data-en="Mail-to-user scanning wand generates factory-ready CAD models. Solves remote custom furniture measurement challenges">寄给用户的专用扫描棒，生成工厂可用的CAD模型。解决远程定制家具的测量难题</td>
-                    <td class="stars">★★★★</td>
-                </tr>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>08</td><td data-zh="远程装修LiDAR套件" data-en="Remote Renovation LiDAR Kit">远程装修LiDAR套件</td><td data-zh="寄给用户的专用扫描棒，生成工厂可用的CAD模型。解决远程定制家具的测量难题。" data-en="Mail-to-user scanning wand generates factory-ready CAD models. Solves remote custom furniture measurement.">寄给用户的专用扫描棒，生成工厂可用的CAD模型。解决远程定制家具的测量难题。</td><td class="stars">★★★★</td></tr>
             </table>
         </div>
 
-        <!-- 4.2 农业与林业 -->
+        <!-- INDUSTRY 2: 农业与林业 -->
         <div class="industry-section">
-            <div class="industry-title">
-                <span class="industry-number">4.2</span>
-                <span data-zh="农业与林业" data-en="Agriculture & Forestry">农业与林业</span>
-            </div>
-
-            <div class="type-label type1">Type I<span data-zh="：手机/相机 + AI算法" data-en=": Phone/Camera + AI">：手机/相机 + AI算法</span></div>
+            <div class="industry-title"><span class="industry-number">2</span><span data-zh="农业与林业" data-en="Agriculture & Forestry">农业与林业</span></div>
+            <div class="type-label type1">Type I</div>
             <table>
-                <tr>
-                    <th class="project-num">#</th>
-                    <th class="project-name" data-zh="项目名称" data-en="Project Name">项目名称</th>
-                    <th data-zh="一句话描述" data-en="Description">一句话描述</th>
-                    <th style="width:80px;" data-zh="潜力" data-en="Potential">潜力</th>
-                </tr>
-                <tr>
-                    <td class="project-num">09</td>
-                    <td class="project-name" data-zh="原木/木材体积测量 (Forest Vision)" data-en="Log Volume Measurement (Forest Vision)">原木/木材体积测量 (Forest Vision)</td>
-                    <td data-zh="手机拍摄木堆，AI识别径级并计算总材积。核心技术已验证，含碳汇量化扩展（碳信用市场$20亿+）" data-en="Phone captures log piles, AI identifies diameter grades & calculates total volume. Core tech verified, includes carbon credit expansion ($20B+ market)">手机拍摄木堆，AI识别径级并计算总材积。核心技术已验证，含碳汇量化扩展（碳信用市场$20亿+）</td>
-                    <td class="stars">★★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">10</td>
-                    <td class="project-name" data-zh="原木"树种"视觉鉴定" data-en="Log Species Visual ID">原木"树种"视觉鉴定</td>
-                    <td data-zh="在原木堆测量基础上，增加木材纹理与皮色识别功能，自动区分混杂在一起的高价材与普通材" data-en="Built on log measurement, adds wood grain & bark color recognition to auto-differentiate mixed premium vs. common timber">在原木堆测量基础上，增加木材纹理与皮色识别功能，自动区分混杂在一起的高价材与普通材</td>
-                    <td class="stars">★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">11</td>
-                    <td class="project-name" data-zh="果实计数与产量预估" data-en="Fruit Counting & Yield Estimation">果实计数与产量预估</td>
-                    <td data-zh="手机/无人机拍照自动数果，识别成熟度和大小，精准预测采摘期与产量。面向中小果农的方案空白" data-en="Phone/drone photos auto-count fruit, identify ripeness & size, precisely predict harvest timing & yield. Gap in solutions for small-medium orchards">手机/无人机拍照自动数果，识别成熟度和大小，精准预测采摘期与产量。面向中小果农的方案空白</td>
-                    <td class="stars">★★★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">12</td>
-                    <td class="project-name" data-zh="草坪/绿化面积→自动报价" data-en="Lawn Area → Auto Quote">草坪/绿化面积→自动报价</td>
-                    <td data-zh="手机GPS自动算面积→一键生成报价单。美国草坪护理$1,300亿市场，极简工具即可切入" data-en="Phone GPS auto-calculates area → one-click quote generation. $130B US lawn care market, minimal tool can enter">手机GPS自动算面积→一键生成报价单。美国草坪护理$1,300亿市场，极简工具即可切入</td>
-                    <td class="stars">★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">13</td>
-                    <td class="project-name" data-zh="农业植保精准除草" data-en="Precision Weed Control">农业植保精准除草</td>
-                    <td data-zh="视觉识别作物与杂草，驱动机械臂精准喷药，显著降低农药使用量和环境负担" data-en="Visual recognition of crops vs. weeds, drives robotic arm for precision spraying, significantly reducing pesticide use & environmental burden">视觉识别作物与杂草，驱动机械臂精准喷药，显著降低农药使用量和环境负担</td>
-                    <td class="stars">★★★</td>
-                </tr>
-                <tr>
-                    <td class="project-num">14</td>
-                    <td class="project-name" data-zh="园林绿化成活率巡检" data-en="Landscaping Survival Rate Inspection">园林绿化成活率巡检</td>
-                    <td data-zh="无人机定期巡航，利用植被指数识别新栽树木是否枯萎，作为工程验收与补种的依据" data-en="Drone periodic patrols using vegetation indices to identify if new plantings are dying, serving as acceptance & replanting basis">无人机定期巡航，利用植被指数识别新栽树木是否枯萎，作为工程验收与补种的依据</td>
-                    <td class="stars">★★★</td>
-                </tr>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>09</td><td data-zh="原木/木材体积测量 (Forest Vision)" data-en="Log Volume Measurement (Forest Vision)">原木/木材体积测量 (Forest Vision)</td><td data-zh="手机拍摄木堆，AI识别径级并计算总材积。核心技术已验证，含碳汇量化扩展（碳信用市场$20亿+）。" data-en="Phone captures log piles, AI identifies diameter grades & calculates volume. Core tech verified, carbon credit expansion ($20B+ market).">手机拍摄木堆，AI识别径级并计算总材积。核心技术已验证，含碳汇量化扩展（碳信用市场$20亿+）。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>10</td><td data-zh="原木"树种"视觉鉴定" data-en="Log Species Visual ID">原木"树种"视觉鉴定</td><td data-zh="在原木堆测量基础上，增加木材纹理与皮色识别功能，自动区分混杂在一起的高价材与普通材。" data-en="Built on log measurement, adds wood grain & bark recognition to differentiate premium vs. common timber.">在原木堆测量基础上，增加木材纹理与皮色识别功能，自动区分混杂在一起的高价材与普通材。</td><td class="stars">★★★★</td></tr>
+                <tr><td>11</td><td data-zh="果实计数与产量预估" data-en="Fruit Counting & Yield Estimation">果实计数与产量预估</td><td data-zh="手机/无人机拍照自动数果，识别成熟度和大小，精准预测采摘期与产量。面向中小果农的方案空白。" data-en="Phone/drone photos auto-count fruit, identify ripeness & size. Gap for small-medium orchards.">手机/无人机拍照自动数果，识别成熟度和大小，精准预测采摘期与产量。面向中小果农的方案空白。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>12</td><td data-zh="活体畜牧自动计数" data-en="Livestock Auto-Counting">活体畜牧自动计数</td><td data-zh="通道/无人机视觉统计牛羊进出数量并监测健康状态。美国9000万头牛、中小牧场自动化方案空白。" data-en="Channel/drone vision counts cattle/sheep entry-exit & monitors health. 90M US cattle, gap for small ranches.">通道/无人机视觉统计牛羊进出数量并监测健康状态。美国9000万头牛、中小牧场自动化方案空白。</td><td class="stars">★★★</td></tr>
+                <tr><td>13</td><td data-zh="草坪/绿化面积→自动报价" data-en="Lawn Area → Auto Quote">草坪/绿化面积→自动报价</td><td data-zh="手机GPS自动算面积→一键生成报价单。美国草坪护理$1,300亿市场，极简工具即可切入。" data-en="Phone GPS calculates area → one-click quote. $130B US lawn care market, minimal tool can enter.">手机GPS自动算面积→一键生成报价单。美国草坪护理$1,300亿市场，极简工具即可切入。</td><td class="stars">★★★</td></tr>
+                <tr><td>14</td><td data-zh="农业植保精准除草" data-en="Precision Weed Control">农业植保精准除草</td><td data-zh="视觉识别作物与杂草，驱动机械臂精准喷药，显著降低农药使用量和环境负担。" data-en="Visual recognition of crops vs. weeds, drives robotic arm for precision spraying, reducing pesticide use.">视觉识别作物与杂草，驱动机械臂精准喷药，显著降低农药使用量和环境负担。</td><td class="stars">★★★</td></tr>
+                <tr><td>15</td><td data-zh="园林绿化成活率巡检" data-en="Landscaping Survival Rate Inspection">园林绿化成活率巡检</td><td data-zh="无人机定期巡航，利用植被指数识别新栽树木是否枯萎，作为工程验收与补种的依据。" data-en="Drone patrols using vegetation indices to identify dying plantings for acceptance & replanting.">无人机定期巡航，利用植被指数识别新栽树木是否枯萎，作为工程验收与补种的依据。</td><td class="stars">★★★</td></tr>
             </table>
-
-            <div class="type-label type3">Type III<span data-zh="：轻量硬件 + AI" data-en=": Light Hardware + AI">：轻量硬件 + AI</span></div>
+            <div class="type-label type3">Type III</div>
             <table>
-                <tr>
-                    <th class="project-num">#</th>
-                    <th class="project-name" data-zh="项目名称" data-en="Project Name">项目名称</th>
-                    <th data-zh="一句话描述" data-en="Description">一句话描述</th>
-                    <th style="width:80px;" data-zh="潜力" data-en="Potential">潜力</th>
-                </tr>
-                <tr>
-                    <td class="project-num">15</td>
-                    <td class="project-name" data-zh="农机自动驾驶后装视觉" data-en="Farm Equipment Retrofit Autonomy">农机自动驾驶后装视觉</td>
-                    <td data-zh="为低成本存量农用机械提供视觉辅助感知，降低作业门槛。后装市场巨大" data-en="Provides visual perception assist for existing low-cost farm equipment, lowering operation barriers. Massive retrofit market">为低成本存量农用机械提供视觉辅助感知，降低作业门槛。后装市场巨大</td>
-                    <td class="stars">★★★</td>
-                </tr>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>16</td><td data-zh="农机自动驾驶后装视觉" data-en="Farm Equipment Retrofit Autonomy">农机自动驾驶后装视觉</td><td data-zh="为低成本存量农用机械提供视觉辅助感知，降低作业门槛。后装市场巨大。" data-en="Visual perception assist for existing farm equipment, lowering operation barriers. Massive retrofit market.">为低成本存量农用机械提供视觉辅助感知，降低作业门槛。后装市场巨大。</td><td class="stars">★★★</td></tr>
+                <tr><td>17</td><td data-zh="水产养殖水下视觉监测" data-en="Aquaculture Underwater Monitoring">水产养殖水下视觉监测</td><td data-zh="水下相机+AI自动计数、量体长、评体况，精准投喂防止浪费。全球水产$3,000亿+。" data-en="Underwater camera + AI counts, measures length, assesses condition for precise feeding. $300B+ global aquaculture.">水下相机+AI自动计数、量体长、评体况，精准投喂防止浪费。全球水产$3,000亿+。</td><td class="stars">★★★</td></tr>
             </table>
         </div>
 
-        <!-- More sections would continue here... For brevity, I'll add the Top 15 and Chapter 6 -->
+        <!-- INDUSTRY 3: 工业与制造 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">3</span><span data-zh="工业与制造" data-en="Industrial & Manufacturing">工业与制造</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>18</td><td data-zh="钢管/管材视觉计数" data-en="Steel Pipe/Tube Counting">钢管/管材视觉计数</td><td data-zh="手机拍照AI秒级数数+AR量长度。与Forest Vision同构的圆柱体识别，迁移成本极低。" data-en="Phone photo AI counts instantly + AR measures length. Same cylinder recognition as Forest Vision, minimal migration cost.">手机拍照AI秒级数数+AR量长度。与Forest Vision同构的圆柱体识别，迁移成本极低。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>19</td><td data-zh="工厂零件拍照计数" data-en="Factory Parts Photo Counting">工厂零件拍照计数</td><td data-zh="手机拍照自动数螺丝/螺母/垫片。面向小制造商的极低成本方案，视觉计数替代称重计数。" data-en="Phone auto-counts screws/nuts/washers. Low-cost solution for small manufacturers, visual counting replaces weighing.">手机拍照自动数螺丝/螺母/垫片。面向小制造商的极低成本方案，视觉计数替代称重计数。</td><td class="stars">★★★</td></tr>
+                <tr><td>20</td><td data-zh="精密零件表面质检" data-en="Precision Parts Surface Inspection">精密零件表面质检</td><td data-zh="AI识别机械零件表面划痕/裂纹/缺陷，为中小制造企业提供低成本方案替代$10万+工业检测设备。" data-en="AI identifies scratches/cracks/defects on parts, low-cost solution replacing $100K+ industrial inspection equipment.">AI识别机械零件表面划痕/裂纹/缺陷，为中小制造企业提供低成本方案替代$10万+工业检测设备。</td><td class="stars">★★★</td></tr>
+                <tr><td>21</td><td data-zh="纺织面料瑕疵检测" data-en="Textile Fabric Defect Detection">纺织面料瑕疵检测</td><td data-zh="针对小众面料市场的高精度表面检测，识别跳线、色差等瑕疵。传统人工目检的AI替代。" data-en="High-precision surface detection for niche fabrics, identifies skipped threads, color variance. AI replaces manual inspection.">针对小众面料市场的高精度表面检测，识别跳线、色差等瑕疵。传统人工目检的AI替代。</td><td class="stars">★★</td></tr>
+                <tr><td>22</td><td data-zh="实物盘点AI扫描" data-en="Physical Inventory AI Scan">实物盘点AI扫描</td><td data-zh="手机扫描货架自动识别和计数，不需要RFID改造的纯视觉方案。年度盘点不再停工。" data-en="Phone scans shelves for auto ID & counting, pure visual solution without RFID. Annual inventory without shutdown.">手机扫描货架自动识别和计数，不需要RFID改造的纯视觉方案。年度盘点不再停工。</td><td class="stars">★★★</td></tr>
+                <tr><td>23</td><td data-zh="焊接质量视觉检测" data-en="Welding Quality Visual Inspection">焊接质量视觉检测</td><td data-zh="手机拍摄焊缝，AI识别气孔、裂纹、未熔合等缺陷，生成合规检测报告。替代X光抽检的低成本方案。" data-en="Phone captures welds, AI identifies pores, cracks, lack of fusion. Low-cost alternative to X-ray spot checks.">手机拍摄焊缝，AI识别气孔、裂纹、未熔合等缺陷，生成合规检测报告。替代X光抽检的低成本方案。</td><td class="stars">★★★</td></tr>
+            </table>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>24</td><td data-zh="粉状/散装物料库存LiDAR" data-en="Bulk Material LiDAR Inventory">粉状/散装物料库存LiDAR</td><td data-zh="LiDAR扫描料堆/粮仓/罐体，计算不规则形态下的精准体积。美国30万家中小工厂的刚需。" data-en="LiDAR scans material piles/silos/tanks, calculates precise volume of irregular shapes. Rigid demand from 300K US factories.">LiDAR扫描料堆/粮仓/罐体，计算不规则形态下的精准体积。美国30万家中小工厂的刚需。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>25</td><td data-zh="AI量方称重台" data-en="AI Volume & Weight Station">AI量方称重台</td><td data-zh="桌面级设备，放上包裹自动出尺寸和重量。$199方案替代$3K+硬件，面向小电商和小物流。" data-en="Desktop device auto-measures package dimensions & weight. $199 replaces $3K+ hardware for small e-commerce & logistics.">桌面级设备，放上包裹自动出尺寸和重量。$199方案替代$3K+硬件，面向小电商和小物流。</td><td class="stars">★★★★</td></tr>
+                <tr><td>26</td><td data-zh="精密机械磨损监测传感器" data-en="Precision Machinery Wear Sensor">精密机械磨损监测传感器</td><td data-zh="为矿场/油田大型设备提供非侵入式金属粉末检测与故障预警。定价权极强。" data-en="Non-invasive metal particle detection & fault warning for mining/oilfield equipment. Strong pricing power.">为矿场/油田大型设备提供非侵入式金属粉末检测与故障预警。定价权极强。</td><td class="stars">★★★</td></tr>
+            </table>
+        </div>
 
+        <!-- INDUSTRY 4: 零售与物流 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">4</span><span data-zh="零售与物流" data-en="Retail & Logistics">零售与物流</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>27</td><td data-zh="货架库存/缺货AI盘点" data-en="Shelf Inventory/Stockout AI">货架库存/缺货AI盘点</td><td data-zh="手机/相机拍照自动识别SKU、数量和空位，实时更新库存热力图。便利店轻量方案空白。" data-en="Phone/camera auto-identifies SKU, quantity, empty spots. Real-time inventory heatmap. Gap for convenience stores.">手机/相机拍照自动识别SKU、数量和空位，实时更新库存热力图。便利店轻量方案空白。</td><td class="stars">★★★★</td></tr>
+                <tr><td>28</td><td data-zh="物流包裹体积测量" data-en="Package Volume Measurement">物流包裹体积测量</td><td data-zh="手机拍照自动出长宽高和体积重量。纯手机方案替代$3,000+硬件量方器。" data-en="Phone photo auto-outputs dimensions & volumetric weight. Phone-only solution replaces $3K+ measuring equipment.">手机拍照自动出长宽高和体积重量。纯手机方案替代$3,000+硬件量方器。</td><td class="stars">★★★</td></tr>
+                <tr><td>29</td><td data-zh="零售盗窃视觉预警" data-en="Retail Theft Visual Alert">零售盗窃视觉预警</td><td data-zh="通过现有监控相机识别异常行为并即时预警，专为小型零售商设计的低成本方案。" data-en="Uses existing surveillance cameras to identify abnormal behavior & instant alerts. Low-cost solution for small retailers.">通过现有监控相机识别异常行为并即时预警，专为小型零售商设计的低成本方案。</td><td class="stars">★★★</td></tr>
+                <tr><td>30</td><td data-zh="船舶装载空间优化" data-en="Ship Loading Space Optimization">船舶装载空间优化</td><td data-zh="基于视觉的货位识别算法，计算集装箱最优摆放位置，最大化空间利用率。" data-en="Vision-based cargo position recognition, calculates optimal container placement for maximum space utilization.">基于视觉的货位识别算法，计算集装箱最优摆放位置，最大化空间利用率。</td><td class="stars">★★</td></tr>
+                <tr><td>31</td><td data-zh="冷链断链视觉示温标签" data-en="Cold Chain Temperature Label">冷链断链视觉示温标签</td><td data-zh="低成本材料+视觉识别，监测生鲜配送过程中是否曾发生超温。食品安全合规需求。" data-en="Low-cost material + visual recognition monitors if fresh food exceeded temperature during delivery. Food safety compliance.">低成本材料+视觉识别，监测生鲜配送过程中是否曾发生超温。食品安全合规需求。</td><td class="stars">★★★</td></tr>
+            </table>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>32</td><td data-zh="餐饮智能库存垫" data-en="Smart Restaurant Inventory Pad">餐饮智能库存垫</td><td data-zh="货架压力传感器垫，实时监测酒水/食材消耗。自动生成补货订单，减少浪费和断货。" data-en="Shelf pressure sensor pad monitors beverage/ingredient consumption in real-time. Auto-generates restock orders.">货架压力传感器垫，实时监测酒水/食材消耗。自动生成补货订单，减少浪费和断货。</td><td class="stars">★★★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 5: 保险与理赔 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">5</span><span data-zh="保险与理赔" data-en="Insurance & Claims">保险与理赔</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>33</td><td data-zh="车辆碰撞损伤自助评估" data-en="Vehicle Collision Self-Assessment">车辆碰撞损伤自助评估</td><td data-zh="车主手机绕车拍一圈，AI识别损伤部位、评估严重程度、估算维修成本。消费者自助定损几乎空白。" data-en="Owner walks around car with phone, AI identifies damage, assesses severity, estimates repair cost. Consumer self-assessment gap.">车主手机绕车拍一圈，AI识别损伤部位、评估严重程度、估算维修成本。消费者自助定损几乎空白。</td><td class="stars">★★★★</td></tr>
+                <tr><td>34</td><td data-zh="房屋灾后损失批量评估" data-en="Post-Disaster Property Assessment">房屋灾后损失批量评估</td><td data-zh="无人机批量拍照+AI识别损伤、量化面积、估算修复成本。美国年$700亿+财产险理赔。" data-en="Drone batch photos + AI identifies damage, quantifies area, estimates repair cost. $70B+ US property insurance claims.">无人机批量拍照+AI识别损伤、量化面积、估算修复成本。美国年$700亿+财产险理赔。</td><td class="stars">★★★</td></tr>
+                <tr><td>35</td><td data-zh="家庭财产AI清单" data-en="Home Property AI Inventory">家庭财产AI清单</td><td data-zh="手机绕房间扫一圈，AI自动识别所有物品并估价→生成保险报告。目前不到5%的人做了财产清单。" data-en="Phone scans room, AI auto-identifies all items & estimates value → generates insurance report. <5% of people have property inventory.">手机绕房间扫一圈，AI自动识别所有物品并估价→生成保险报告。目前不到5%的人做了财产清单。</td><td class="stars">★★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 6: 能源与基础设施 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">6</span><span data-zh="能源与基础设施" data-en="Energy & Infrastructure">能源与基础设施</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>36</td><td data-zh="太阳能板积尘与破损检测" data-en="Solar Panel Dust & Damage Detection">太阳能板积尘与破损检测</td><td data-zh="无人机+AI识别故障面板（热斑、隐裂、灰尘），自动触发清洗和维修指令。" data-en="Drone + AI identifies faulty panels (hot spots, micro-cracks, dust), auto-triggers cleaning & repair.">无人机+AI识别故障面板（热斑、隐裂、灰尘），自动触发清洗和维修指令。</td><td class="stars">★★★★</td></tr>
+                <tr><td>37</td><td data-zh="道路坑洼路面病害巡检" data-en="Road Pothole & Damage Inspection">道路坑洼路面病害巡检</td><td data-zh="行车记录仪+AI自动识别路面损坏并地理标注。私人路面（停车场、社区）仍然空白。" data-en="Dashcam + AI auto-identifies road damage with geo-tagging. Private roads (parking lots, communities) still blank.">行车记录仪+AI自动识别路面损坏并地理标注。私人路面（停车场、社区）仍然空白。</td><td class="stars">★★★</td></tr>
+                <tr><td>38</td><td data-zh="输电线路视觉巡检" data-en="Power Line Visual Inspection">输电线路视觉巡检</td><td data-zh="无人机AI识别绝缘子破损、导线断股、树木侵占等隐患，替代人工巡线。" data-en="Drone AI identifies insulator damage, conductor strand breaks, tree encroachment. Replaces manual line inspection.">无人机AI识别绝缘子破损、导线断股、树木侵占等隐患，替代人工巡线。</td><td class="stars">★★★</td></tr>
+            </table>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>39</td><td data-zh="水管声纹听诊器" data-en="Water Pipe Acoustic Sensor">水管声纹听诊器</td><td data-zh="夹在水管上的微型设备，通过声纹AI识别渗漏。美国年$130亿水损市场，保险公司梦寐以求的风险数据。" data-en="Clip-on device uses acoustic AI to identify leaks. $13B US water damage market, risk data insurers dream of.">夹在水管上的微型设备，通过声纹AI识别渗漏。美国年$130亿水损市场，保险公司梦寐以求的风险数据。</td><td class="stars">★★★★</td></tr>
+                <tr><td>40</td><td data-zh="电弧故障/电路指纹分析仪" data-en="Arc Fault/Circuit Fingerprint Analyzer">电弧故障/电路指纹分析仪</td><td data-zh="夹在配电箱上的设备，通过电流波形AI识别老化/故障电路。房屋火灾数据对保险公司有极高价值。" data-en="Clamps on breaker box, uses current waveform AI to identify aging/faulty circuits. Fire data highly valuable to insurers.">夹在配电箱上的设备，通过电流波形AI识别老化/故障电路。房屋火灾数据对保险公司有极高价值。</td><td class="stars">★★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 7: 矿业与采掘 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">7</span><span data-zh="矿业与采掘" data-en="Mining & Extraction">矿业与采掘</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>41</td><td data-zh="矿场安全穿戴装备监控" data-en="Mining Safety Gear Monitoring">矿场安全穿戴装备监控</td><td data-zh="24小时识别作业人员防护装备佩戴情况及设备结构异常，合规驱动的安全监控刚需。" data-en="24/7 identifies worker protective equipment compliance & structural anomalies. Compliance-driven safety monitoring.">24小时识别作业人员防护装备佩戴情况及设备结构异常，合规驱动的安全监控刚需。</td><td class="stars">★★★</td></tr>
+                <tr><td>42</td><td data-zh="矿堆体积变化监测" data-en="Ore Pile Volume Change Monitoring">矿堆体积变化监测</td><td data-zh="无人机定期扫描矿堆，AI计算开采量与剩余储量，优化开采计划与物流调度。" data-en="Drone periodic scans of ore piles, AI calculates extraction & remaining reserves, optimizes mining & logistics.">无人机定期扫描矿堆，AI计算开采量与剩余储量，优化开采计划与物流调度。</td><td class="stars">★★★</td></tr>
+            </table>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>43</td><td data-zh="近红外油品检测仪" data-en="NIR Oil Quality Detector">近红外油品检测仪</td><td data-zh="利用光谱技术现场一秒检测机油/食用油极性组分，识别油品老化与掺假。" data-en="Spectroscopy tech detects motor/cooking oil polar compounds in 1 second, identifies aging & adulteration.">利用光谱技术现场一秒检测机油/食用油极性组分，识别油品老化与掺假。</td><td class="stars">★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 8: 医疗与健康 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">8</span><span data-zh="医疗与健康" data-en="Healthcare & Wellness">医疗与健康</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>44</td><td data-zh="伤口面积测量（远程医疗）" data-en="Wound Area Measurement (Telehealth)">伤口面积测量（远程医疗）</td><td data-zh="手机拍照+参考物校准→AI自动计算伤口面积和深度。居家护理和远程医疗场景。" data-en="Phone photo + reference calibration → AI auto-calculates wound area & depth. Home care & telehealth scenarios.">手机拍照+参考物校准→AI自动计算伤口面积和深度。居家护理和远程医疗场景。</td><td class="stars">★★★</td></tr>
+                <tr><td>45</td><td data-zh="皮肤病变追踪与预警" data-en="Skin Lesion Tracking & Alert">皮肤病变追踪与预警</td><td data-zh="定期拍照追踪痣/斑点变化，AI识别疑似恶性病变并建议就医。早期筛查的消费级方案。" data-en="Periodic photos track mole/spot changes, AI identifies suspected malignancy & recommends consultation. Consumer early screening.">定期拍照追踪痣/斑点变化，AI识别疑似恶性病变并建议就医。早期筛查的消费级方案。</td><td class="stars">★★★</td></tr>
+            </table>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>46</td><td data-zh="户外徒步柔性助力裤" data-en="Outdoor Hiking Soft Exo-Pants">户外徒步柔性助力裤</td><td data-zh="内置微型线驱的"冲锋裤"，上坡15%助力。利用FPC供应链做到$499，野外步态数据卖给机器人公司。" data-en="Built-in micro cable-driven 'hiking pants', 15% uphill assist. FPC supply chain for $499, outdoor gait data sells to robotics.">内置微型线驱的"冲锋裤"，上坡15%助力。利用FPC供应链做到$499，野外步态数据卖给机器人公司。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>47</td><td data-zh="跑步姿态优化鞋垫" data-en="Running Form Optimization Insole">跑步姿态优化鞋垫</td><td data-zh="高频压力传感器鞋垫+实时语音教练纠正跑姿。柔性电路做成$50半耗材，足底数据对康复医学有价值。" data-en="High-frequency pressure sensor insole + real-time voice coach corrects form. FPC $50 semi-consumable, foot data valuable for rehab.">高频压力传感器鞋垫+实时语音教练纠正跑姿。柔性电路做成$50半耗材，足底数据对康复医学有价值。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>48</td><td data-zh="主动防伤护具（流变液）" data-en="Active Injury Prevention Gear (Shear-thickening)">主动防伤护具（流变液）</td><td data-zh="内置流变液护具，检测到错误发力瞬间毫秒级硬化锁死。关节极限受力数据对运动医学有价值。" data-en="Built-in shear-thickening fluid gear, millisecond hardening when detecting improper force. Joint stress data valuable for sports medicine.">内置流变液护具，检测到错误发力瞬间毫秒级硬化锁死。关节极限受力数据对运动医学有价值。</td><td class="stars">★★★</td></tr>
+                <tr><td>49</td><td data-zh="电竞增强手套" data-en="E-sports Enhancement Gloves">电竞增强手套</td><td data-zh="EMS微电流+力反馈手套，游戏中提供触觉和辅助。电竞训练与人机交互数据有研究价值。" data-en="EMS microcurrent + force feedback gloves, provides haptics & assist in gaming. E-sports training & HCI data has research value.">EMS微电流+力反馈手套，游戏中提供触觉和辅助。电竞训练与人机交互数据有研究价值。</td><td class="stars">★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 9: 居家安全与智能家居 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">9</span><span data-zh="居家安全与智能家居" data-en="Home Safety & Smart Home">居家安全与智能家居</span></div>
+            <div class="type-label type3">Type III</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>50</td><td data-zh="AI反诈网关（即插即用）" data-en="AI Anti-Fraud Gateway (Plug & Play)">AI反诈网关（即插即用）</td><td data-zh="本地化AI设备，实时分析来电/短信/邮件识别诈骗。老年人诈骗损失年$37亿+，最大蓝海。" data-en="Local AI device analyzes calls/texts/emails for fraud in real-time. $3.7B+ annual elderly fraud losses, biggest blue ocean.">本地化AI设备，实时分析来电/短信/邮件识别诈骗。老年人诈骗损失年$37亿+，最大蓝海。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>51</td><td data-zh="独居老人行为感知" data-en="Elderly Living Alone Behavior Sensing">独居老人行为感知</td><td data-zh="非摄像头的环境传感器，通过AI学习日常作息模式，异常时自动通知家属。隐私友好方案。" data-en="Non-camera environmental sensors, AI learns daily routines, auto-notifies family of anomalies. Privacy-friendly solution.">非摄像头的环境传感器，通过AI学习日常作息模式，异常时自动通知家属。隐私友好方案。</td><td class="stars">★★★★</td></tr>
+                <tr><td>52</td><td data-zh="家庭资产3D数字博物馆" data-en="Family Asset 3D Digital Museum">家庭资产3D数字博物馆</td><td data-zh="通过3D扫描和口述记录，为家庭传承珍贵实物并保存背后的历史叙事。情感价值极高。" data-en="3D scanning + oral recording preserves family heirlooms & their historical narratives. Extremely high emotional value.">通过3D扫描和口述记录，为家庭传承珍贵实物并保存背后的历史叙事。情感价值极高。</td><td class="stars">★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 10: 科研与实验室 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">10</span><span data-zh="科研与实验室" data-en="Research & Laboratory">科研与实验室</span></div>
+            <div class="type-label type1">Type I</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>53</td><td data-zh="实验室自动化视频记录" data-en="Lab Automation Video Recording">实验室自动化视频记录</td><td data-zh="自动记录实验器材状态与样本变化，生成数字化实验日志并预警异常。科研场景。" data-en="Auto-records equipment status & sample changes, generates digital lab journals & alerts anomalies. Research scenarios.">自动记录实验器材状态与样本变化，生成数字化实验日志并预警异常。科研场景。</td><td class="stars">★★</td></tr>
+                <tr><td>54</td><td data-zh="精密发酵过程视觉辅助" data-en="Precision Fermentation Visual Assist">精密发酵过程视觉辅助</td><td data-zh="实时监测液体颜色和气泡动态，优化酿酒/生物制造产出。垂直领域的深度应用。" data-en="Real-time monitors liquid color & bubble dynamics, optimizes brewing/biomanufacturing output. Deep vertical application.">实时监测液体颜色和气泡动态，优化酿酒/生物制造产出。垂直领域的深度应用。</td><td class="stars">★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 11: 微型跨国公司财税 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">11</span><span data-zh="微型跨国公司财税" data-en="Micro-MNC Finance & Tax">微型跨国公司财税</span></div>
+            <div class="type-label type2">Type II</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>55</td><td data-zh="多币种AI智能记账" data-en="Multi-Currency AI Bookkeeping">多币种AI智能记账</td><td data-zh="连接Stripe/银行/信用卡，AI自动分类所有交易、处理多币种转换、生成IRS报表。替代$3K-10K/年跨境CPA。" data-en="Connects Stripe/banks/cards, AI auto-categorizes transactions, handles multi-currency, generates IRS reports. Replaces $3K-10K/year cross-border CPA.">连接Stripe/银行/信用卡，AI自动分类所有交易、处理多币种转换、生成IRS报表。替代$3K-10K/年跨境CPA。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>56</td><td data-zh="跨境Contractor极简支付" data-en="Cross-Border Contractor Payments">跨境Contractor极简支付</td><td data-zh="极简全球contractor支付工具，$9-19/月/人替代Deel的$599/月。含自动W-8BEN/1042-S合规。" data-en="Minimal global contractor payment tool, $9-19/mo/person replaces Deel's $599/mo. Includes auto W-8BEN/1042-S compliance.">极简全球contractor支付工具，$9-19/月/人替代Deel的$599/月。含自动W-8BEN/1042-S合规。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>57</td><td data-zh="季度预估税AI计算器" data-en="Quarterly Estimated Tax AI Calculator">季度预估税AI计算器</td><td data-zh="为自由职业者实时预测季度税务支出，避免年底产生预料之外的巨额税单。可作为记账工具的核心功能。" data-en="Real-time quarterly tax prediction for freelancers, avoids unexpected year-end tax bills. Can be core bookkeeping feature.">为自由职业者实时预测季度税务支出，避免年底产生预料之外的巨额税单。可作为记账工具的核心功能。</td><td class="stars">★★★★</td></tr>
+                <tr><td>58</td><td data-zh="全球销售税/VAT自动合规" data-en="Global Sales Tax/VAT Auto-Compliance">全球销售税/VAT自动合规</td><td data-zh="自动判断nexus、收税、申报缴纳。$29-99/月替代Paddle/LemonSqueezy的5-15%佣金抽成。" data-en="Auto-determines nexus, collects tax, files & remits. $29-99/mo replaces Paddle/LemonSqueezy's 5-15% commission.">自动判断nexus、收税、申报缴纳。$29-99/月替代Paddle/LemonSqueezy的5-15%佣金抽成。</td><td class="stars">★★★</td></tr>
+                <tr><td>59</td><td data-zh="一人公司AI CFO" data-en="Solo Company AI CFO">一人公司AI CFO</td><td data-zh="记账+税务+支出数据整合+AI决策支持。$99-199/月替代CPA+税务+财务顾问共$18K/年。" data-en="Bookkeeping + tax + expense integration + AI decision support. $99-199/mo replaces $18K/year CPA + tax + financial advisor.">记账+税务+支出数据整合+AI决策支持。$99-199/月替代CPA+税务+财务顾问共$18K/年。</td><td class="stars">★★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 12: 微型跨国公司运营 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">12</span><span data-zh="微型跨国公司运营" data-en="Micro-MNC Operations">微型跨国公司运营</span></div>
+            <div class="type-label type2">Type II</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>60</td><td data-zh="公司结构与注册地推荐" data-en="Company Structure & Jurisdiction Advisor">公司结构与注册地推荐</td><td data-zh="根据业务分布和税务身份，AI建议最优离岸公司结构。创业第一步的获客入口。" data-en="AI recommends optimal offshore structure based on business distribution & tax status. Customer acquisition entry point.">根据业务分布和税务身份，AI建议最优离岸公司结构。创业第一步的获客入口。</td><td class="stars">★★★★</td></tr>
+                <tr><td>61</td><td data-zh="全司法管辖区合规Dashboard" data-en="Multi-Jurisdiction Compliance Dashboard">全司法管辖区合规Dashboard</td><td data-zh="汇总所有司法管辖区合规义务的可视化日历，自动提醒deadline。完全空白市场。" data-en="Visual calendar aggregating all jurisdiction compliance obligations, auto-reminds deadlines. Completely blank market.">汇总所有司法管辖区合规义务的可视化日历，自动提醒deadline。完全空白市场。</td><td class="stars">★★★★</td></tr>
+                <tr><td>62</td><td data-zh="AI法律合规审计助手" data-en="AI Legal Compliance Audit Assistant">AI法律合规审计助手</td><td data-zh="自动审核多语言服务合同，预警法律陷阱，生成标准化模板。$39-99/月替代$300-500/小时律师。" data-en="Auto-reviews multilingual service contracts, warns of legal pitfalls, generates templates. $39-99/mo replaces $300-500/hr lawyers.">自动审核多语言服务合同，预警法律陷阱，生成标准化模板。$39-99/月替代$300-500/小时律师。</td><td class="stars">★★★</td></tr>
+                <tr><td>63</td><td data-zh="跨国团队公私财务隔离" data-en="Cross-Border Team Finance Separation">跨国团队公私财务隔离</td><td data-zh="算法自动剥离混合在个人卡里的公司经营性开支，确保财务合规。痛点普遍。" data-en="Algorithm auto-separates business expenses mixed in personal cards, ensures compliance. Universal pain point.">算法自动剥离混合在个人卡里的公司经营性开支，确保财务合规。痛点普遍。</td><td class="stars">★★★</td></tr>
+                <tr><td>64</td><td data-zh="数字游民身份与居留管理" data-en="Digital Nomad Identity & Residency Management">数字游民身份与居留管理</td><td data-zh="自动化处理全球签证申请、地址证明获取以及多地报税身份同步。数字游民群体增长迅速。" data-en="Automates global visa applications, address proof acquisition, multi-location tax identity sync. Fast-growing digital nomad segment.">自动化处理全球签证申请、地址证明获取以及多地报税身份同步。数字游民群体增长迅速。</td><td class="stars">★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 13: 微型跨国公司扩展 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">13</span><span data-zh="微型跨国公司扩展" data-en="Micro-MNC Expansion">微型跨国公司扩展</span></div>
+            <div class="type-label type2">Type II</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>65</td><td data-zh="微型公司保险聚合" data-en="Micro-Company Insurance Aggregator">微型公司保险聚合</td><td data-zh="聚合多家保险公司报价，AI推荐最优E&O/GL/Cyber保险组合。微型公司精算数据几乎为零。" data-en="Aggregates quotes from multiple insurers, AI recommends optimal E&O/GL/Cyber combo. Nearly zero actuarial data for micro-companies.">聚合多家保险公司报价，AI推荐最优E&O/GL/Cyber保险组合。微型公司精算数据几乎为零。</td><td class="stars">★★★</td></tr>
+                <tr><td>66</td><td data-zh="B2B垂直获客Agent" data-en="B2B Vertical Lead Gen Agent">B2B垂直获客Agent</td><td data-zh="利用AI自动寻找全球潜在客户并进行个性化邮件触达。针对垂直长尾行业的自动化销售。" data-en="AI auto-finds global prospects & personalized email outreach. Automated sales for vertical long-tail industries.">利用AI自动寻找全球潜在客户并进行个性化邮件触达。针对垂直长尾行业的自动化销售。</td><td class="stars">★★★</td></tr>
+                <tr><td>67</td><td data-zh="小批量定制品供应商匹配" data-en="Small Batch Custom Supplier Matching">小批量定制品供应商匹配</td><td data-zh="输入需求，AI从供应商数据库智能匹配并汇总报价对比。一人公司的AI采购助理。" data-en="Input requirements, AI smart-matches from supplier database & compares quotes. AI procurement assistant for solo companies.">输入需求，AI从供应商数据库智能匹配并汇总报价对比。一人公司的AI采购助理。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>68</td><td data-zh="小批量跨境物流比价" data-en="Small Batch Cross-Border Logistics Comparison">小批量跨境物流比价</td><td data-zh="输入货物信息，自动比较多个物流方案价格和时效。面向一人公司小批量需求的极简方案。" data-en="Input cargo info, auto-compares multiple logistics options by price & time. Minimal solution for solo company small batches.">输入货物信息，自动比较多个物流方案价格和时效。面向一人公司小批量需求的极简方案。</td><td class="stars">★★★</td></tr>
+                <tr><td>69</td><td data-zh="小微企业碳足迹核算" data-en="SMB Carbon Footprint Accounting">小微企业碳足迹核算</td><td data-zh="为面临合规压力的微型出口企业提供自动化碳足迹分析与抵消建议。欧盟CBAM驱动。" data-en="Auto carbon footprint analysis & offset recommendations for micro-exporters facing compliance pressure. EU CBAM driven.">为面临合规压力的微型出口企业提供自动化碳足迹分析与抵消建议。欧盟CBAM驱动。</td><td class="stars">★★★</td></tr>
+                <tr><td>70</td><td data-zh="私域知识图谱Agent" data-en="Private Knowledge Graph Agent">私域知识图谱Agent</td><td data-zh="为小团队构建基于私有数据的Agent，确保数据绝对安全且可作为核心资产传承。信任是核心。" data-en="Builds private data-based Agent for small teams, ensures absolute data security as inheritable core asset. Trust is key.">为小团队构建基于私有数据的Agent，确保数据绝对安全且可作为核心资产传承。信任是核心。</td><td class="stars">★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 14: 创业者服务 (Founded) -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">14</span><span data-zh="创业者服务 (Founded)" data-en="Founder Services (Founded)">创业者服务 (Founded)</span></div>
+            <div class="type-label type4">Type IV</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>71</td><td data-zh="创业者里程碑周边 (Founded)" data-en="Founder Milestone Merch (Founded)">创业者里程碑周边 (Founded)</td><td data-zh="输入公司名和网站，AI自动提取品牌→设计产品线。每个里程碑自动送达品牌礼盒。560万新企业/年。" data-en="Input company name & website, AI extracts brand → designs product line. Auto-delivers branded gift box at each milestone. 5.6M new businesses/year.">输入公司名和网站，AI自动提取品牌→设计产品线。每个里程碑自动送达品牌礼盒。560万新企业/年。</td><td class="stars">★★★★★</td></tr>
+                <tr><td>72</td><td data-zh="里程碑社交内容自动化" data-en="Milestone Social Content Automation">里程碑社交内容自动化</td><td data-zh="每次里程碑自动生成专业照片+AI文案+标签，一键发布到社交媒体。创业旅程即品牌。" data-en="Auto-generates professional photos + AI copy + hashtags at each milestone, one-click publish to social. Startup journey as brand.">每次里程碑自动生成专业照片+AI文案+标签，一键发布到社交媒体。创业旅程即品牌。</td><td class="stars">★★★★</td></tr>
+                <tr><td>73</td><td data-zh="加速器/VC白标企业版" data-en="Accelerator/VC White-Label Enterprise">加速器/VC白标企业版</td><td data-zh="为加速器和VC提供白标方案，批量为portfolio公司提供品牌周边和里程碑服务。B2B放大器。" data-en="White-label for accelerators & VCs, batch provides brand merch & milestone services for portfolio. B2B amplifier.">为加速器和VC提供白标方案，批量为portfolio公司提供品牌周边和里程碑服务。B2B放大器。</td><td class="stars">★★★★</td></tr>
+                <tr><td>74</td><td data-zh="创业者运营采购平台" data-en="Founder Operations Procurement Platform">创业者运营采购平台</td><td data-zh="从周边延伸到供应商采购、合规文件、客户礼品的一站式采购。周边是楔子，平台是终局。" data-en="Extends from merch to one-stop procurement: supplier sourcing, compliance docs, client gifts. Merch is wedge, platform is endgame.">从周边延伸到供应商采购、合规文件、客户礼品的一站式采购。周边是楔子，平台是终局。</td><td class="stars">★★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 15: 人生里程碑扩展 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">15</span><span data-zh="人生里程碑扩展" data-en="Life Milestone Expansion">人生里程碑扩展</span></div>
+            <div class="type-label type4">Type IV</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>75</td><td data-zh="新手父母里程碑礼盒" data-en="New Parent Milestone Gift Box">新手父母里程碑礼盒</td><td data-zh="宝宝出生、第一步、第一个生日等里程碑的个性化礼盒。从创业者扩展到"所有人生第一次"。" data-en="Personalized gift boxes for baby's birth, first steps, first birthday milestones. Expands from founders to 'all life firsts'.">宝宝出生、第一步、第一个生日等里程碑的个性化礼盒。从创业者扩展到"所有人生第一次"。</td><td class="stars">★★★★</td></tr>
+                <tr><td>76</td><td data-zh="职场新人里程碑礼包" data-en="Career Starter Milestone Package">职场新人里程碑礼包</td><td data-zh="毕业、第一份工作、首次晋升等节点的仪式感礼盒。可对接大学和企业HR的B2B渠道。" data-en="Ceremonial gift boxes for graduation, first job, first promotion. B2B channel through universities & corporate HR.">毕业、第一份工作、首次晋升等节点的仪式感礼盒。可对接大学和企业HR的B2B渠道。</td><td class="stars">★★★</td></tr>
+                <tr><td>77</td><td data-zh="个人"高光时刻"纪念品" data-en="Personal 'Highlight Moment' Memorabilia">个人"高光时刻"纪念品</td><td data-zh="通过视觉数据自动剪辑并记录重要职业成就，生成实体纪念品。情感价值极高。" data-en="Auto-clips & records career achievements via visual data, generates physical memorabilia. Extremely high emotional value.">通过视觉数据自动剪辑并记录重要职业成就，生成实体纪念品。情感价值极高。</td><td class="stars">★★★</td></tr>
+            </table>
+        </div>
+
+        <!-- INDUSTRY 16: 情感陪伴与社群 -->
+        <div class="industry-section">
+            <div class="industry-title"><span class="industry-number">16</span><span data-zh="情感陪伴与社群" data-en="Emotional Companionship & Community">情感陪伴与社群</span></div>
+            <div class="type-label type4">Type IV</div>
+            <table>
+                <tr><th>#</th><th data-zh="项目名称" data-en="Project">项目名称</th><th data-zh="描述" data-en="Description">描述</th><th data-zh="潜力" data-en="★">潜力</th></tr>
+                <tr><td>78</td><td data-zh="高净值退休人群社交平台" data-en="High Net Worth Retiree Social Platform">高净值退休人群社交平台</td><td data-zh="为刚退休的高管/专家提供知识输出和情感连接的闭门社交平台。高粘性高ARPU。" data-en="Private social platform for newly retired executives/experts to share knowledge & emotional connection. High stickiness, high ARPU.">为刚退休的高管/专家提供知识输出和情感连接的闭门社交平台。高粘性高ARPU。</td><td class="stars">★★★</td></tr>
+                <tr><td>79</td><td data-zh="创业者心理韧性陪伴" data-en="Founder Mental Resilience Companionship">创业者心理韧性陪伴</td><td data-zh="基于强信任关系的心理疏导，缓解创始人阶段性的孤独感与压力。AI+真人混合模式。" data-en="Trust-based psychological guidance, relieves founder's periodic loneliness & pressure. AI + human hybrid model.">基于强信任关系的心理疏导，缓解创始人阶段性的孤独感与压力。AI+真人混合模式。</td><td class="stars">★★★</td></tr>
+                <tr><td>80</td><td data-zh="再就业蓝领AI导师" data-en="Re-employment Blue Collar AI Mentor">再就业蓝领AI导师</td><td data-zh="利用AR视觉辅助，指导转型中的工人在新领域快速上手复杂技术操作。蓝领再就业市场巨大。" data-en="AR visual assist guides transitioning workers to quickly master complex technical operations. Huge blue-collar re-employment market.">利用AR视觉辅助，指导转型中的工人在新领域快速上手复杂技术操作。蓝领再就业市场巨大。</td><td class="stars">★★★</td></tr>
+                <tr><td>81</td><td data-zh="资深专家技能交换社区" data-en="Senior Expert Skill Exchange Community">资深专家技能交换社区</td><td data-zh="让"行业老炮"通过AI翻译与整理，向全球传授细分领域知识。知识变现新路径。" data-en="'Industry veterans' teach niche domain knowledge globally via AI translation & organization. New path for knowledge monetization.">让"行业老炮"通过AI翻译与整理，向全球传授细分领域知识。知识变现新路径。</td><td class="stars">★★</td></tr>
+            </table>
+        </div>
+
+        <!-- Chapter 5: Top 15 -->
         <h2 data-zh="第五章 综合优先级排序：Top 15" data-en="Chapter 5: Comprehensive Priority Ranking: Top 15">第五章 综合优先级排序：Top 15</h2>
-
-        <p data-zh="从100+个项目中筛选出的最高优先级项目。评分维度：市场刚需（40%）、技术可行性/迁移成本（30%）、数据资产价值（30%）。" data-en="Top priority projects filtered from 100+ options. Scoring dimensions: Market rigidity (40%), Technical feasibility/migration cost (30%), Data asset value (30%).">从100+个项目中筛选出的最高优先级项目。评分维度：市场刚需（40%）、技术可行性/迁移成本（30%）、数据资产价值（30%）。</p>
+        <p data-zh="从81个项目中筛选出的最高优先级项目。评分维度：市场刚需（40%）、技术可行性/迁移成本（30%）、数据资产价值（30%）。" data-en="Top priority projects filtered from 81 options. Scoring: Market rigidity (40%), Technical feasibility/migration cost (30%), Data asset value (30%).">从81个项目中筛选出的最高优先级项目。评分维度：市场刚需（40%）、技术可行性/迁移成本（30%）、数据资产价值（30%）。</p>
 
         <table class="top15-table">
             <tr>
@@ -654,94 +453,95 @@
             </tr>
             <tr>
                 <td class="rank-cell">2</td>
-                <td><strong data-zh="#19 钢管/管材计数" data-en="#19 Steel Pipe/Tube Counting">#19 钢管/管材计数</strong></td>
+                <td><strong data-zh="#18 钢管/管材计数" data-en="#18 Steel Pipe/Tube Counting">#18 钢管/管材计数</strong></td>
                 <td data-zh="与FV完全同构的圆柱体识别，迁移成本极低。快速验证跨行业能力" data-en="Identical cylinder recognition to FV, minimal migration cost. Quick cross-industry validation">与FV完全同构的圆柱体识别，迁移成本极低。快速验证跨行业能力</td>
                 <td><span class="type-badge t1">Type I</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">3</td>
                 <td><strong data-zh="#01 室内量房→材料清单" data-en="#01 Room Scan → Material List">#01 室内量房→材料清单</strong></td>
-                <td data-zh="年450万套装修的第一步，量房到材料采购清单的全链条工具不存在" data-en="First step for 4.5M renovations/year, no full-chain tool from room scan to material procurement exists">年450万套装修的第一步，量房到材料采购清单的全链条工具不存在</td>
+                <td data-zh="年450万套装修的第一步，量房到材料采购清单的全链条工具不存在" data-en="First step for 4.5M renovations/year, no full-chain tool exists">年450万套装修的第一步，量房到材料采购清单的全链条工具不存在</td>
                 <td><span class="type-badge t1">Type I</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">4</td>
-                <td><strong data-zh="#57 多币种AI记账" data-en="#57 Multi-Currency AI Bookkeeping">#57 多币种AI记账</strong></td>
-                <td data-zh="微型跨国公司最高频最痛的需求，现有工具完全不匹配。财务数据是最高价值的入口" data-en="Highest frequency pain point for micro-MNCs, existing tools completely mismatched. Financial data is highest-value entry point">微型跨国公司最高频最痛的需求，现有工具完全不匹配。财务数据是最高价值的入口</td>
+                <td><strong data-zh="#55 多币种AI记账" data-en="#55 Multi-Currency AI Bookkeeping">#55 多币种AI记账</strong></td>
+                <td data-zh="微型跨国公司最高频最痛的需求，现有工具完全不匹配。财务数据是最高价值的入口" data-en="Highest frequency pain point for micro-MNCs, existing tools mismatched. Financial data is highest-value entry">微型跨国公司最高频最痛的需求，现有工具完全不匹配。财务数据是最高价值的入口</td>
                 <td><span class="type-badge t2">Type II</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">5</td>
-                <td><strong data-zh="#83 Founded里程碑周边" data-en="#83 Founded Milestone Merch">#83 Founded里程碑周边</strong></td>
-                <td data-zh="560万新企业/年的情感刚需，企业级方案存在但面向大公司。已有产品原型" data-en="Emotional demand from 5.6M new businesses/year, enterprise solutions exist but target large companies. Prototype exists">560万新企业/年的情感刚需，企业级方案存在但面向大公司。已有产品原型</td>
+                <td><strong data-zh="#71 Founded里程碑周边" data-en="#71 Founded Milestone Merch">#71 Founded里程碑周边</strong></td>
+                <td data-zh="560万新企业/年的情感刚需，企业级方案存在但面向大公司。已有产品原型" data-en="Emotional demand from 5.6M new businesses/year, enterprise solutions target large companies. Prototype exists">560万新企业/年的情感刚需，企业级方案存在但面向大公司。已有产品原型</td>
                 <td><span class="type-badge t4">Type IV</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">6</td>
-                <td><strong data-zh="#26 粉状物料库存LiDAR" data-en="#26 Bulk Material LiDAR Inventory">#26 粉状物料库存LiDAR</strong></td>
-                <td data-zh="30万家美国工厂的刚需，工人冒生命危险爬罐顶的现状亟需改变" data-en="Rigid demand from 300K US factories, workers risking lives climbing tank tops needs to change urgently">30万家美国工厂的刚需，工人冒生命危险爬罐顶的现状亟需改变</td>
+                <td><strong data-zh="#24 粉状物料库存LiDAR" data-en="#24 Bulk Material LiDAR Inventory">#24 粉状物料库存LiDAR</strong></td>
+                <td data-zh="30万家美国工厂的刚需，工人冒生命危险爬罐顶的现状亟需改变" data-en="Rigid demand from 300K US factories, workers risking lives climbing tank tops needs to change">30万家美国工厂的刚需，工人冒生命危险爬罐顶的现状亟需改变</td>
                 <td><span class="type-badge t3">Type III</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">7</td>
-                <td><strong data-zh="#49 户外柔性助力裤" data-en="#49 Outdoor Soft Exo-Pants">#49 户外柔性助力裤</strong></td>
-                <td data-zh="软体外骨骼CAGR 31.9%，$500以下大众化产品空白。野外步态数据是稀缺资源" data-en="Soft exoskeleton CAGR 31.9%, sub-$500 mass-market gap. Outdoor gait data is scarce resource">软体外骨骼CAGR 31.9%，$500以下大众化产品空白。野外步态数据是稀缺资源</td>
+                <td><strong data-zh="#46 户外柔性助力裤" data-en="#46 Outdoor Soft Exo-Pants">#46 户外柔性助力裤</strong></td>
+                <td data-zh="软体外骨骼CAGR 31.9%，$500以下大众化产品空白。野外步态数据是稀缺资源" data-en="Soft exoskeleton CAGR 31.9%, sub-$500 mass-market gap. Outdoor gait data is scarce">软体外骨骼CAGR 31.9%，$500以下大众化产品空白。野外步态数据是稀缺资源</td>
                 <td><span class="type-badge t3">Type III</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">8</td>
-                <td><strong data-zh="#58 跨境Contractor支付" data-en="#58 Cross-Border Contractor Payments">#58 跨境Contractor支付</strong></td>
-                <td data-zh="Deel $599/月的1/30定价，面向年增30%的一人公司。跨境雇佣数据有高价值" data-en="1/30th the price of Deel's $599/mo, targeting 30% YoY growth in solo companies. Cross-border employment data highly valuable">Deel $599/月的1/30定价，面向年增30%的一人公司。跨境雇佣数据有高价值</td>
+                <td><strong data-zh="#56 跨境Contractor支付" data-en="#56 Cross-Border Contractor Payments">#56 跨境Contractor支付</strong></td>
+                <td data-zh="Deel $599/月的1/30定价，面向年增30%的一人公司。跨境雇佣数据有高价值" data-en="1/30th Deel's $599/mo, targeting 30% YoY solo company growth. Cross-border employment data highly valuable">Deel $599/月的1/30定价，面向年增30%的一人公司。跨境雇佣数据有高价值</td>
                 <td><span class="type-badge t2">Type II</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">9</td>
-                <td><strong data-zh="#37 餐饮智能库存垫" data-en="#37 Smart Restaurant Inventory Pad">#37 餐饮智能库存垫</strong></td>
-                <td data-zh="SMB板块最高CAGR 24.22%。消耗数据对食品供应链有直接商业价值" data-en="Highest SMB sector CAGR at 24.22%. Consumption data has direct commercial value for food supply chain">SMB板块最高CAGR 24.22%。消耗数据对食品供应链有直接商业价值</td>
+                <td><strong data-zh="#32 餐饮智能库存垫" data-en="#32 Smart Restaurant Inventory Pad">#32 餐饮智能库存垫</strong></td>
+                <td data-zh="SMB板块最高CAGR 24.22%。消耗数据对食品供应链有直接商业价值" data-en="Highest SMB sector CAGR 24.22%. Consumption data has direct commercial value for food supply chain">SMB板块最高CAGR 24.22%。消耗数据对食品供应链有直接商业价值</td>
                 <td><span class="type-badge t3">Type III</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">10</td>
-                <td><strong data-zh="#56 AI反诈网关" data-en="#56 AI Anti-Fraud Gateway">#56 AI反诈网关</strong></td>
-                <td data-zh="老年人诈骗损失年$37亿+。即插即用硬件，本地化AI不依赖云端，隐私友好" data-en="$3.7B+ annual elderly fraud losses. Plug-and-play hardware, local AI doesn't rely on cloud, privacy-friendly">老年人诈骗损失年$37亿+。即插即用硬件，本地化AI不依赖云端，隐私友好</td>
+                <td><strong data-zh="#50 AI反诈网关" data-en="#50 AI Anti-Fraud Gateway">#50 AI反诈网关</strong></td>
+                <td data-zh="老年人诈骗损失年$37亿+。即插即用硬件，本地化AI不依赖云端，隐私友好" data-en="$3.7B+ annual elderly fraud losses. Plug-and-play, local AI doesn't rely on cloud, privacy-friendly">老年人诈骗损失年$37亿+。即插即用硬件，本地化AI不依赖云端，隐私友好</td>
                 <td><span class="type-badge t3">Type III</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">11</td>
                 <td><strong data-zh="#02 屋顶面积+损伤评估" data-en="#02 Roof Area + Damage Assessment">#02 屋顶面积+损伤评估</strong></td>
-                <td data-zh="年500万屋顶项目的$500亿市场。屋顶数据是保险公司梦寐以求的风险定价数据" data-en="$50B market with 5M roof projects/year. Roof data is insurance companies' dream risk pricing data">年500万屋顶项目的$500亿市场。屋顶数据是保险公司梦寐以求的风险定价数据</td>
+                <td data-zh="年500万屋顶项目的$500亿市场。屋顶数据是保险公司梦寐以求的风险定价数据" data-en="$50B market with 5M roof projects/year. Roof data is insurers' dream risk pricing data">年500万屋顶项目的$500亿市场。屋顶数据是保险公司梦寐以求的风险定价数据</td>
                 <td><span class="type-badge t1">Type I</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">12</td>
                 <td><strong data-zh="#11 果实计数与产量预估" data-en="#11 Fruit Counting & Yield Estimation">#11 果实计数与产量预估</strong></td>
-                <td data-zh="全球水果$1万亿产业核心需求。种子公司和农险是明确的数据买家" data-en="Core demand in $1T global fruit industry. Seed companies and agricultural insurance are clear data buyers">全球水果$1万亿产业核心需求。种子公司和农险是明确的数据买家</td>
+                <td data-zh="全球水果$1万亿产业核心需求。种子公司和农险是明确的数据买家" data-en="Core demand in $1T global fruit industry. Seed companies & ag insurance are clear data buyers">全球水果$1万亿产业核心需求。种子公司和农险是明确的数据买家</td>
                 <td><span class="type-badge t1">Type I</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">13</td>
-                <td><strong data-zh="#71 供应商智能匹配" data-en="#71 Smart Supplier Matching">#71 供应商智能匹配</strong></td>
-                <td data-zh="信息极度不对称的市场，AI采购助理完全空白。供应商信用数据有独立价值" data-en="Highly asymmetric information market, AI procurement assistant completely blank. Supplier credit data has independent value">信息极度不对称的市场，AI采购助理完全空白。供应商信用数据有独立价值</td>
+                <td><strong data-zh="#67 供应商智能匹配" data-en="#67 Smart Supplier Matching">#67 供应商智能匹配</strong></td>
+                <td data-zh="信息极度不对称的市场，AI采购助理完全空白。供应商信用数据有独立价值" data-en="Highly asymmetric info market, AI procurement assistant blank. Supplier credit data has independent value">信息极度不对称的市场，AI采购助理完全空白。供应商信用数据有独立价值</td>
                 <td><span class="type-badge t2">Type II</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">14</td>
-                <td><strong data-zh="#51 跑步姿态鞋垫" data-en="#51 Running Form Insole">#51 跑步姿态鞋垫</strong></td>
-                <td data-zh="$50半耗材差异化定位，CAGR 17.8-21.5%。足底压力数据对康复医学有高价值" data-en="$50 semi-consumable differentiated positioning, CAGR 17.8-21.5%. Foot pressure data highly valuable for rehabilitation medicine">$50半耗材差异化定位，CAGR 17.8-21.5%。足底压力数据对康复医学有高价值</td>
+                <td><strong data-zh="#47 跑步姿态鞋垫" data-en="#47 Running Form Insole">#47 跑步姿态鞋垫</strong></td>
+                <td data-zh="$50半耗材差异化定位，CAGR 17.8-21.5%。足底压力数据对康复医学有高价值" data-en="$50 semi-consumable differentiated position, CAGR 17.8-21.5%. Foot pressure data valuable for rehab">$50半耗材差异化定位，CAGR 17.8-21.5%。足底压力数据对康复医学有高价值</td>
                 <td><span class="type-badge t3">Type III</span></td>
             </tr>
             <tr>
                 <td class="rank-cell">15</td>
-                <td><strong data-zh="#61 一人公司AI CFO" data-en="#61 Solo Company AI CFO">#61 一人公司AI CFO</strong></td>
-                <td data-zh="记账切入后的自然升级，$99-199/月替代$18K/年的专业服务。数据价值远超SaaS收入" data-en="Natural upgrade after bookkeeping entry, $99-199/mo replaces $18K/year professional services. Data value far exceeds SaaS revenue">记账切入后的自然升级，$99-199/月替代$18K/年的专业服务。数据价值远超SaaS收入</td>
+                <td><strong data-zh="#59 一人公司AI CFO" data-en="#59 Solo Company AI CFO">#59 一人公司AI CFO</strong></td>
+                <td data-zh="记账切入后的自然升级，$99-199/月替代$18K/年的专业服务。数据价值远超SaaS收入" data-en="Natural upgrade after bookkeeping entry, $99-199/mo replaces $18K/year services. Data value far exceeds SaaS revenue">记账切入后的自然升级，$99-199/月替代$18K/年的专业服务。数据价值远超SaaS收入</td>
                 <td><span class="type-badge t2">Type II</span></td>
             </tr>
         </table>
 
+        <!-- Chapter 6 -->
         <h2 data-zh="第六章 推荐执行路径" data-en="Chapter 6: Recommended Execution Paths">第六章 推荐执行路径</h2>
 
-        <h3 data-zh="6.1 选择原则：从100+个中只选1–2个" data-en="6.1 Selection Principle: Choose Only 1-2 from 100+">6.1 选择原则：从100+个中只选1–2个</h3>
-        <p data-zh="这份地图列出了100+个机会，但我们的行动原则是只选择1–2个项目进行All-in执行。选择时应考虑：是否有已验证的技术基础（如Forest Vision）？是否能在6个月内交付MVP？是否有明确的数据买家？是否匹配团队现有能力？" data-en="This map lists 100+ opportunities, but our action principle is to select only 1-2 projects for all-in execution. Consider: Is there verified technical foundation (like Forest Vision)? Can we deliver MVP within 6 months? Are there clear data buyers? Does it match team capabilities?">这份地图列出了100+个机会，但我们的行动原则是只选择1–2个项目进行All-in执行。选择时应考虑：是否有已验证的技术基础（如Forest Vision）？是否能在6个月内交付MVP？是否有明确的数据买家？是否匹配团队现有能力？</p>
+        <h3 data-zh="6.1 选择原则：从81个中只选1–2个" data-en="6.1 Selection Principle: Choose Only 1-2 from 81">6.1 选择原则：从81个中只选1–2个</h3>
+        <p data-zh="这份地图列出了81个机会，但我们的行动原则是只选择1–2个项目进行All-in执行。选择时应考虑：是否有已验证的技术基础（如Forest Vision）？是否能在6个月内交付MVP？是否有明确的数据买家？是否匹配团队现有能力？" data-en="This map lists 81 opportunities, but our action principle is to select only 1-2 projects for all-in execution. Consider: Is there verified technical foundation (like Forest Vision)? Can we deliver MVP within 6 months? Are there clear data buyers? Does it match team capabilities?">这份地图列出了81个机会，但我们的行动原则是只选择1–2个项目进行All-in执行。选择时应考虑：是否有已验证的技术基础（如Forest Vision）？是否能在6个月内交付MVP？是否有明确的数据买家？是否匹配团队现有能力？</p>
 
         <h3 data-zh="6.2 三种可能的启动路径" data-en="6.2 Three Possible Launch Paths">6.2 三种可能的启动路径</h3>
 
@@ -785,13 +585,8 @@
     </div>
 
     <script>
-        // Password: vision2026 (you can change this)
         const CORRECT_PASSWORD = 'vision2026';
-
-        // Check if already authenticated
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            showContent();
-        }
+        if (sessionStorage.getItem('authenticated') === 'true') { showContent(); }
 
         function checkPassword() {
             const input = document.getElementById('passwordInput').value;
@@ -809,35 +604,21 @@
             document.getElementById('passwordOverlay').classList.add('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
             document.getElementById('langSwitcher').classList.remove('hidden');
-
-            // Initialize language
             const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
-                setLanguage(savedLang);
-            } else {
-                // Auto-detect browser language
+            if (savedLang) { setLanguage(savedLang); }
+            else {
                 const browserLang = navigator.language || navigator.userLanguage;
-                if (browserLang.startsWith('zh')) {
-                    setLanguage('zh');
-                } else {
-                    setLanguage('en');
-                }
+                setLanguage(browserLang.startsWith('zh') ? 'zh' : 'en');
             }
         }
 
         function setLanguage(lang) {
             localStorage.setItem('preferredLanguage', lang);
-
-            // Update button states
             document.getElementById('btnZh').classList.toggle('active', lang === 'zh');
             document.getElementById('btnEn').classList.toggle('active', lang === 'en');
-
-            // Update all text content
             document.querySelectorAll('[data-zh][data-en]').forEach(el => {
                 el.textContent = el.getAttribute('data-' + lang);
             });
-
-            // Update HTML lang attribute
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
         }
     </script>
